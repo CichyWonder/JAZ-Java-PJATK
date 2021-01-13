@@ -7,9 +7,12 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 
 
+
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 @Configuration
 public class AppWebSecurityConfigureAdapter extends WebSecurityConfigurerAdapter {
+
+
 
     @Override
     protected void configure (HttpSecurity http) throws Exception{
@@ -17,6 +20,8 @@ public class AppWebSecurityConfigureAdapter extends WebSecurityConfigurerAdapter
                 .authorizeRequests()
                 .antMatchers("/login").permitAll()
                 .antMatchers("/register").permitAll()
+                .antMatchers("/loginjpa").permitAll()
+                .antMatchers("/registerjpa").permitAll()
                 .antMatchers("/auth0/*").permitAll()
                 .anyRequest().authenticated()
                 .and().csrf().disable();

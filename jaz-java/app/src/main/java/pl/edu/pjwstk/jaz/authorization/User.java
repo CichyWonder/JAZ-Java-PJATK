@@ -10,9 +10,10 @@ public class User {
 
     private String password;
 
-    public User(String username, String password) {
+    public User(String username, String password, Set <String> authorities) {
         this.username = username;
         this.password = password;
+        this.authorities = authorities;
     }
 
     public void setAuthorities(Set<String> authorities) {

@@ -11,6 +11,7 @@ public class LoginController {
 
     private final UserSession userSession;
 
+
     public LoginController(AuthenticationService authenticationService, UserSession userSession){
         this.authenticationService = authenticationService;
         this.userSession = userSession;
@@ -19,9 +20,12 @@ public class LoginController {
     @PostMapping("/login")
     public void login(@RequestBody LoginRequest loginRequest){
         var isLogged = authenticationService.login(loginRequest.getUsername(), loginRequest.getPassword());
+
+
         if (!isLogged) {
             throw new UnauthorizedExecption();
         }
+
         userSession.setIslogged();
     }
     /*@GetMapping("/logout")

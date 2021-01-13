@@ -1,6 +1,8 @@
-DROP TABLE test1;
+CREATE SEQUENCE hibernate_sequence;
 
-CREATE TABLE user_roles(
-    id PRIMARY KEY,
-    role CHAR NOT NULL
-);
+CREATE TABLE users(
+    id BIGSERIAL PRIMARY KEY,
+    username VARCHAR,
+    password VARCHAR,
+    role VARCHAR
+)
