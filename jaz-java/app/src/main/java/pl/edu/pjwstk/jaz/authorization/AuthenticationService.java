@@ -44,10 +44,13 @@ public class AuthenticationService {
             final UserEntity currentUser = userService.findUserByUsername(username);
             final BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
             if (encoder.matches(password, currentUser.getPassword())) {
+
                 String[] authoritiesArray = currentUser.getRole().split(",");
                 Set<String> authoritiesAsSet = new HashSet<String>(Arrays.asList(authoritiesArray));
+
                 User user = new User(currentUser.getUsername(), currentUser.getPassword(), authoritiesAsSet);
                 SecurityContextHolder.getContext().setAuthentication(new AppAuthentication(user));
+
                 return login;
             } else {
                 login = false;

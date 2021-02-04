@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class LoginController {
     private final AuthenticationService authenticationService;
-
+    private String username;
     private final UserSession userSession;
 
 
@@ -20,6 +20,8 @@ public class LoginController {
     @PostMapping("/login")
     public void login(@RequestBody LoginRequest loginRequest){
         var isLogged = authenticationService.login(loginRequest.getUsername(), loginRequest.getPassword());
+
+        username = loginRequest.getUsername();
 
 
         if (!isLogged) {
@@ -34,4 +36,8 @@ public class LoginController {
                 userSession.logout();
             }
     }*/
+
+    public String getUsername() {
+        return username;
+    }
 }

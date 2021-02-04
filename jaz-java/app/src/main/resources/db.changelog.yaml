@@ -8,11 +8,24 @@ databaseChangeLog:
       splitStatements: false
       path: db.changelog/20201012_init.sql
 
-      changeSet:
-        id: 20210104_users.sql
-        author: Michał Cichowski
-        sqlFile:
-          relativeToChangelogFile: true
-          stripComments: true
-          splitStatements: false
-          path: db.changelog/20210104_users.sql
+- changeSet:
+    id: 20210104_user.sql
+    author: Michał Cichowski
+    sqlFile:
+      relativeToChangelogFile: true
+      stripComments: true
+      splitStatements: false
+      path: db.changelog/20210104_user.sql
+
+- changeSet:
+    id: 20210115_auction.sql
+    author: Michał Cichowski
+    sqlFile:
+      relativeToChangelogFile: true
+      stripComments: true
+      splitStatements: false
+      path: db.changelog/20210115_auction.sql
+
+
+
+

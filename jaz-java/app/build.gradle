@@ -15,6 +15,7 @@ dependencies {
     implementation 'org.liquibase:liquibase-core'
     implementation 'org.springframework.data:spring-data-commons'
     implementation 'org.postgresql:postgresql'
+    compile group: 'com.fasterxml.jackson.module', name: 'jackson-module-jaxb-annotations', version: '2.11.3'
 
     testImplementation('org.springframework.boot:spring-boot-starter-test') {
         exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'

@@ -16,39 +16,12 @@ import static org.hamcrest.Matchers.equalTo;
 @IntegrationTest
 public class UserLoginAndRegistrationJpaTests {
 
-    @BeforeClass
-    public static void adminRegistration() throws JSONException {
-        JSONObject parameters = new JSONObject();
-        parameters.put("username", "admin");
-        parameters.put("password", "admin123");
-        given()
-                .contentType("application/json")
-                .body(parameters.toString())
-                .when()
-                .post("/api/registerjpa")
-                .thenReturn();
-
-    }
-
-    @BeforeClass
-    public static void userRegistration() throws JSONException {
-        JSONObject parameters = new JSONObject();
-        parameters.put("username", "user");
-        parameters.put("password", "user123");
-        given()
-                .contentType("application/json")
-                .body(parameters.toString())
-                .when()
-                .post("/api/registerjpa")
-                .thenReturn();
-
-    }
 
     @Test
     public void adminLogin() throws JSONException {
         JSONObject parameters = new JSONObject();
-        parameters.put("username", "admin");
-        parameters.put("password", "admin123");
+        parameters.put("username", "cos");
+        parameters.put("password", "admin156");
         var reply = given()
                 .contentType("application/json")
                 .body(parameters.toString())
@@ -66,8 +39,8 @@ public class UserLoginAndRegistrationJpaTests {
     @Test
     public void messageForAdmin() throws JSONException {
         JSONObject parameters = new JSONObject();
-        parameters.put("username", "admin");
-        parameters.put("password", "admin123");
+        parameters.put("username", "lol");
+        parameters.put("password", "admin156");
         var reply = given()
                 .contentType("application/json")
                 .body(parameters.toString())

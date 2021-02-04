@@ -1,11 +1,10 @@
 package pl.edu.pjwstk.jaz.authorizationjpa;
 
 import javax.persistence.*;
-import java.io.Serializable;
 
 
 @Entity
-    @Table(name="users")
+    @Table(name= "user", schema = "public")
     public class UserEntity {
 
         @Column

@@ -12,6 +12,7 @@ import pl.edu.pjwstk.jaz.authorization.UserSession;
 public class LoginControllerJpa {
     private final AuthenticationService authenticationService;
     private final UserSession userSession;
+    private String username;
 
     public LoginControllerJpa (AuthenticationService authenticationService,UserSession userSession ){
         this.authenticationService=authenticationService;
@@ -19,10 +20,17 @@ public class LoginControllerJpa {
     }
     @PostMapping("/loginjpa")
     public void login(@RequestBody LoginRequest loginRequest){
+
+        username = loginRequest.getUsername();
+
         var isLogged = authenticationService.loginjpa(loginRequest.getUsername (),loginRequest.getPassword ());
         if(!isLogged){
             throw new UnauthorizedExecption();
         }
         userSession.setIslogged();
+    }
+
+    public String getUsername() {
+        return username;
     }
 }
